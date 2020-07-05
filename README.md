@@ -12,8 +12,9 @@ En esta tarea se comenzoo por importar los datos provenientes del arcvhivo *bits
     import matplotlib.pyplot as plt
     import csv
 
-Primero se definen las variables de interes para la resolución del problema
-cantidad de bits
+Primero se definen las variables de interes para la resolución del problema:  
+
+Cantidad de bits
 
     N = lens(bits)
     
@@ -63,12 +64,23 @@ Finalmente para esa parte se creo la señal modulada con:
         else:
             senal[k * p:(k + 1) * p] = -sinus
  
-Dicho segmento de código basicamente adiciona en la señal de almacenamiento, un *Seno* en la ubicación de cada 1 en el array *bits* y una señal *-Seno* en la ubicación de cada 0 en el mismo array. Generando asi a siguiente senal moduladaÑ
+Dicho segmento de código basicamente adiciona en la señal de almacenamiento, un *Seno* en la ubicación de cada 1 en el array *bits* y una señal *-Seno* en la ubicación de cada 0 en el mismo array. Generando asi a siguiente senal modulada:
 
 
-## Pregunta 2.
+## Pregunta 2. Potencia promedio de la señal modulada
+Se calcula la potencia instantanea de la señal como:
 
-## Pregunta 3.
+        Pinst = senal**2
+
+A partir de la cual se puede calcular la potencia promedio en Watts
+
+        Ps = integrate.trapz(Pinst, t) / (N * T)
+                
+## Pregunta 3. Canal ruidoso AWGN con una relacion señal a ruido (*SNR*) desde -2 hasta 3dB
+Primero establecemos el rango de posibles valores de SNR
+
+        rango = range(-2,4) # Genera un rango de [-2,3]
+
 
 ## Pregunta 4.
 ## Pregunta 5.
