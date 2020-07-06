@@ -109,7 +109,7 @@ Al Graficar dicha señal con ruido para los primeros 7 bits obtenemos:
 
 * SNR = 0
 
-![alt text]()
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR0_Rx.png)
 
 * SNR = 1
 
