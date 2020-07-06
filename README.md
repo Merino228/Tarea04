@@ -37,13 +37,14 @@ Vector de los puntos de muestreo por cada periodo
 Forma de onda de la Portadora (Onda Sinusoidal) 
 
     sinus = np.sin(2*np.pi * f * tp)
-    
+
+Onda sinusoidal Portadora
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SinusoidalPortadora.png)
+
 Frecuencia de Muestreo
 
     fm = p/T
-    
-
-    
 
 ## Pregunta 1. Modulación BPSK
 Para la modulación BPSK se comenzó por crear un vector "temporal" para la señal emitida (*Tx*) 
@@ -65,6 +66,7 @@ Finalmente para esa parte se creo la señal modulada con:
  
 Dicho segmento de código basicamente adiciona en la señal de almacenamiento, un *Seno* en la ubicación de cada 1 en el array *bits* y una señal *-Seno* en la ubicación de cada 0 en el mismo array. Generando asi a siguiente senal modulada para los primeros 7 bits:
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/Se%C3%B1alModulada.png)
 
 ## Pregunta 2. Potencia promedio de la señal modulada
 Se calcula la potencia instantanea de la señal como:
@@ -74,7 +76,9 @@ Se calcula la potencia instantanea de la señal como:
 A partir de la cual se puede calcular la potencia promedio en Watts
 
         Ps = integrate.trapz(Pinst, t) / (N * T)
-                
+              
+##### Potencia Promedio = 0.49
+
 ## Pregunta 3. Canal ruidoso AWGN con una relacion señal a ruido (*SNR*) desde -2 hasta 3dB
 Primero establecemos el rango de posibles valores de SNR
 
@@ -97,15 +101,28 @@ Al Graficar dicha señal con ruido para los primeros 7 bits obtenemos:
 
 * SNR = -2
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-2_Rx.png)
+
 * SNR = -1
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-1_Rx.png)
 
 * SNR = 0
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR0_Rx.png)
+
 * SNR = 1
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR1_Rx.png)
 
 * SNR = 2
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR2_Rx.png)
+
 * SNR = 3
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR3_Rx.png)
+
 
 ## Pregunta 4. Densidad espectral de potencia de la señal con el método de Welch (SciPy), antes y después del canal ruidoso.
 
@@ -127,15 +144,33 @@ Por lo tanto obtenemos las siguientes figuras para cada SNR
 
 * SNR = -2
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-2_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-2_Despues.png)
+
 * SNR = -1
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-1_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR-1_Despues.png)
 
 * SNR = 0
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR0_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR0_Despues.png)
+
 * SNR = 1
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR1_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR1_Despues.png)
 
 * SNR = 2
 
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR2_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR2_Despues.png)
+
 * SNR = 3
+
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR3_Antes.png)
+![alt text](https://github.com/Merino228/Tarea04/blob/master/SNR3_Despues.png)
 
 ## Pregunta 5. Demodular y decodificar la señal y hacer un conteo de la tasa de error de bits (BER) para cada nivel SNR
 Primero se calcula cual deberia ser un "estandar" de la energia generada por la onda original
@@ -172,19 +207,39 @@ Por lo tanto para cada SNR se obtienen los siguientes errores y BERs:
 
 * SNR = -2
 
+**Error** = 22
+**BER** = 0.0022
+
 * SNR = -1
+
+**Error** = 5
+**BER** = 0.0005
 
 * SNR = 0
 
+**Error** = 0 
+**BER** = 0
+
 * SNR = 1
+
+**Error** = 0
+**BER** = 0
 
 * SNR = 2
 
+**Error** = 0 
+**BER** = 0
+
 * SNR = 3
+
+**Error** = 0
+**BER** = 0
 
 
 ## Pregunta 6. Graficar BER versus SNR
 
 Finalmente se graficó BER contra SNR obteniendo asi el siguiente gráfico:
 
-![alt text]()
+![alt text](https://github.com/Merino228/Tarea04/blob/master/BNRvsSNR.png)
+
+Note que entre mayor sea el SNR menor será el ruido lo cual se traduce como un menor BER.
